@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cross Drawer</title>
+  </head>
+  <body>
+    <h1>Cross Drawer</h1>
+    {% if error%}
+    <p><strong>{{error}}</strong></p>
+    {% endif%}
+    <form action="" method="post" enctype="multipart/form-data">
+      <label for="image">Select an image:</label>
+      <input type="file" id="image" name="image">
+      <br><br>
+      <label for="color">Select a color:</label>
+      <input type="color" id="color" name="color" value="#ff0000">
+      <br><br>
+      <label for="cross_type">Select a cross type:</label>
+      <select id="cross_type" name="cross_type">
+        <option value="vertical">Vertical</option>
+        <option value="horizontal">Horizontal</option>
+      </select>
+      <br><br>
+      <input type="submit" value="Draw Cross">
+    </form>
+    <img src="{{ url_for('static', filename='cross_image.jpg') }}" alt="New Image">
+    <h2>Original Image Color Distribution</h2>
+    <img src="{{ original_hist }}" alt="Original Histogram">
+    <h2>New Image Color Distribution</h2>
+    <img src="{{ new_hist }}" alt="New Histogram">
+  </body>
+</html>
